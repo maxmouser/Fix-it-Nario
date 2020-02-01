@@ -1213,11 +1213,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47aa7d35bef844490a0add2b7f0f40ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 50
+  speed: 0.3
   alturaSalto: 4.5
   rb: {fileID: 0}
   jumpForce: 20
   fallForce: -2.5
+  isFalling: 0
+  isGrounded: 1
 --- !u!54 &8364272604685655108
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -5,15 +5,14 @@ using UnityEngine;
 public class MovimientoPlayer1 : MonoBehaviour
 {
 
-    [Range(1, 100)]
-    public int speed = 50;
+    [Range(0, 1)]
+    public float speed = 0.5f;
 
     public float alturaSalto= 5;
     public Rigidbody rb;
 
     [Range(1, 100)]
     public float jumpForce = 20;
-
     public float fallForce=-5;
 
     public bool isFalling= false;
@@ -27,6 +26,14 @@ public class MovimientoPlayer1 : MonoBehaviour
     void FixedUpdate()
     {
         fall();
+ 		jump();
+ 		movimientoHorizontal();
+        //float moveHorizontal = Input.GetAxis("Horizontal");
+        //Vector3 movement = new Vector3(moveHorizontal, 0.0f, 0);
+
+
+        //transform.position = movement;
+        //rb.MovePosition(transform.position + transform.right * Time.fixedDeltaTime);
     }
 
         void Update()
@@ -34,10 +41,9 @@ public class MovimientoPlayer1 : MonoBehaviour
         //Vector3 desiredVelocity = Input.GetAxis("Horizontal") * transform.right + Input.GetAxis("Vertical") * transform.forward;
         //rb.velocity = Vector3.Lerp(rb.velocity, desiredVelocity, Time.deltaTime * 5f);
 
-        float moveHorizontal = Input.GetAxis("Horizontal");
+		//GetComponent<Animation>().Play("Idle");
 
-        Vector3 movement = new Vector3(moveHorizontal, 0.0f, 0);
-        jump();
+       
 
         if (this.transform.position.y >= alturaSalto)
         {
@@ -45,8 +51,32 @@ public class MovimientoPlayer1 : MonoBehaviour
         }
 
 
-        rb.AddForce(movement * speed);
 
+    }
+
+    public void movimientoHorizontal(){
+
+
+       if(Input.GetKey(KeyCode.D))
+        {
+            //this.transform.Translate(speed, 0.0f, 0.0f);
+            //Transform.position = oldPosition;
+           this.transform.position = new Vector3(transform.position.x + speed, transform.position.y, transform.position.z );
+
+        }
+
+       if(Input.GetKey(KeyCode.A))
+        {
+            //this.transform.Translate(speed, 0.0f, 0.0f);
+            //Transform.position = oldPosition;
+           this.transform.position = new Vector3(transform.position.x - speed, transform.position.y, transform.position.z );
+
+        }
+        //float moveHorizontal = Input.GetAxis("Horizontal");
+
+        //Vector3 movement = new Vector3(moveHorizontal, 0.0f, 0);
+
+    	//rb.AddForce(movement * speed);
     }
 
     public void fall()
@@ -61,8 +91,10 @@ public class MovimientoPlayer1 : MonoBehaviour
     {
         if (isGrounded)
         {
-            if (Input.GetButtonDown("Jump"))
+
+            if ( Input.GetKey(KeyCode.Space))
             {
+            	print("salto");
                 rb.AddForce(0, jumpForce, 0, ForceMode.Impulse);
                 //rb.velocity = Vector3.up * jumpForce;
             }
