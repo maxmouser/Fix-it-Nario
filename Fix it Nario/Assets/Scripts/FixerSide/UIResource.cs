@@ -12,7 +12,6 @@ public class UIResource : MonoBehaviour
 
     public void SetHover(bool value)
     {
-        Debug.Log("hover " + value); 
         _isHover = value;
     }
 

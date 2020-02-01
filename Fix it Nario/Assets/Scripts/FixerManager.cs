@@ -32,8 +32,11 @@ public class FixerManager : MonoBehaviour
         }
     }
 
-    public void UpdateFixerManager()
+    private Vector3 _currentMousePosition;
+
+    public void UpdateFixerManager(Vector3 currentMousePosition)
     {
+        _currentMousePosition = currentMousePosition;
         if (activeDragable != null)
         {
             if (Input.GetMouseButtonUp(0))
@@ -57,7 +60,7 @@ public class FixerManager : MonoBehaviour
 
     Vector3 GetWorldToMouseScreenPosition()
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Ray ray = Camera.main.ScreenPointToRay(_currentMousePosition);
         Plane xy = new Plane(Vector3.forward, new Vector3(0, 0, Constants.Z_WORLD));
         float distance;
         xy.Raycast(ray, out distance);
