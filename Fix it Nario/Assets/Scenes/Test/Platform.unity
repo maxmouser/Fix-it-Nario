@@ -389,6 +389,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!1 &1687663771 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3085626396597049482, guid: b89029c25a71a6c4bbaa0d8d41c7f3ae,
+    type: 3}
+  m_PrefabInstance: {fileID: 3085626394909862929}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1687663772
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1687663771}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &3085626394909862929
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -399,6 +418,11 @@ PrefabInstance:
     - target: {fileID: 3085626396597049482, guid: b89029c25a71a6c4bbaa0d8d41c7f3ae,
         type: 3}
       propertyPath: m_Name
+      value: Stairs
+      objectReference: {fileID: 0}
+    - target: {fileID: 3085626396597049482, guid: b89029c25a71a6c4bbaa0d8d41c7f3ae,
+        type: 3}
+      propertyPath: m_TagString
       value: Stairs
       objectReference: {fileID: 0}
     - target: {fileID: 3085626396597049485, guid: b89029c25a71a6c4bbaa0d8d41c7f3ae,
@@ -456,6 +480,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8726866599745086837, guid: b89029c25a71a6c4bbaa0d8d41c7f3ae,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b89029c25a71a6c4bbaa0d8d41c7f3ae, type: 3}
 --- !u!1001 &8364272604127574174
@@ -465,11 +494,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8364272604685655109, guid: 61b8a06a0351b4349b6d304ca505b846,
-        type: 3}
-      propertyPath: alturaSalto
-      value: 3.5
-      objectReference: {fileID: 0}
     - target: {fileID: 8364272604685655111, guid: 61b8a06a0351b4349b6d304ca505b846,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -523,16 +547,6 @@ PrefabInstance:
     - target: {fileID: 8364272604685655111, guid: 61b8a06a0351b4349b6d304ca505b846,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8364272604685655112, guid: 61b8a06a0351b4349b6d304ca505b846,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8364272604685655112, guid: 61b8a06a0351b4349b6d304ca505b846,
-        type: 3}
-      propertyPath: m_Center.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8364272604685655115, guid: 61b8a06a0351b4349b6d304ca505b846,

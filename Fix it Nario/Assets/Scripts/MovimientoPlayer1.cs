@@ -5,18 +5,21 @@ using UnityEngine;
 public class MovimientoPlayer1 : MonoBehaviour
 {
 
-    [Range(0, 1)]
-    public float speed = 0.5f;
 
-    public float alturaSalto= 5;
     public Rigidbody rb;
 
-    [Range(1, 100)]
+    public float speed = 0.5f;
+
     public float jumpForce = 20;
+
+    public float alturaSalto= 5;
+
     public float fallForce=-5;
 
     public bool isFalling= false;
     public bool isGrounded;
+    public bool stairsCollision = false;
+
 
     void Start()
     {
@@ -28,28 +31,12 @@ public class MovimientoPlayer1 : MonoBehaviour
         fall();
  		jump();
  		movimientoHorizontal();
-        //float moveHorizontal = Input.GetAxis("Horizontal");
-        //Vector3 movement = new Vector3(moveHorizontal, 0.0f, 0);
 
-
-        //transform.position = movement;
-        //rb.MovePosition(transform.position + transform.right * Time.fixedDeltaTime);
     }
 
         void Update()
     {
-        //Vector3 desiredVelocity = Input.GetAxis("Horizontal") * transform.right + Input.GetAxis("Vertical") * transform.forward;
-        //rb.velocity = Vector3.Lerp(rb.velocity, desiredVelocity, Time.deltaTime * 5f);
-
 		//GetComponent<Animation>().Play("Idle");
-
-       
-
-        if (this.transform.position.y >= alturaSalto)
-        {
-            isFalling = true;
-        }
-
 
 
     }
@@ -69,18 +56,29 @@ public class MovimientoPlayer1 : MonoBehaviour
         {
             //this.transform.Translate(speed, 0.0f, 0.0f);
             //Transform.position = oldPosition;
-           this.transform.position = new Vector3(transform.position.x - speed, transform.position.y, transform.position.z );
+           this.transform.position = new Vector3(transform.position.x - speed, transform.position.y, transform.position.z);
+
+        }
+
+       	if(Input.GetKey(KeyCode.W) && stairsCollision)
+        {
+            //this.transform.Translate(speed, 0.0f, 0.0f);
+            //Transform.position = oldPosition;
+           this.transform.position = new Vector3(transform.position.x, transform.position.y+speed, transform.position.z);
 
         }
         //float moveHorizontal = Input.GetAxis("Horizontal");
-
         //Vector3 movement = new Vector3(moveHorizontal, 0.0f, 0);
-
     	//rb.AddForce(movement * speed);
     }
 
     public void fall()
     {
+		if (this.transform.position.y >= alturaSalto)
+        {
+            isFalling = true;
+        }
+
         if (isFalling)
         {
             rb.AddForce(0, fallForce, 0, ForceMode.Impulse);
@@ -94,7 +92,6 @@ public class MovimientoPlayer1 : MonoBehaviour
 
             if ( Input.GetKey(KeyCode.Space))
             {
-            	print("salto");
                 rb.AddForce(0, jumpForce, 0, ForceMode.Impulse);
                 //rb.velocity = Vector3.up * jumpForce;
             }
@@ -109,6 +106,7 @@ public class MovimientoPlayer1 : MonoBehaviour
             isGrounded = true;
             isFalling = false;
         }
+
     }
 
     void OnCollisionExit(Collision other)
@@ -117,7 +115,21 @@ public class MovimientoPlayer1 : MonoBehaviour
         {
             isGrounded = false;
         }
+        
     }
+
+
+    void OnTriggerStay(Collider other){
+
+        if (other.gameObject.tag == "Stairs")
+        {
+        	print("Collision escalera");
+            stairsCollision = true;
+        }
+    }
+
+
+
 
 
 }
