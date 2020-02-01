@@ -1199,8 +1199,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.2, y: 1.3, z: 1}
-  m_Center: {x: -0.39, y: 0.15, z: 0}
+  m_Size: {x: 2, y: 1.3, z: 1}
+  m_Center: {x: -0.5, y: 0.15, z: 0}
 --- !u!114 &8364272604685655109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1218,8 +1218,6 @@ MonoBehaviour:
   rb: {fileID: 0}
   jumpForce: 20
   fallForce: -2.5
-  isFalling: 0
-  isGrounded: 1
 --- !u!54 &8364272604685655108
 Rigidbody:
   m_ObjectHideFlags: 0
