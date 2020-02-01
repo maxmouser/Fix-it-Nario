@@ -6,14 +6,37 @@ using UnityEngine;
 
 public class UIResource : MonoBehaviour
 {
-    private Button _button;
     private Action _onClick;
     private int _cuantity;
+    public bool _isHover;
 
-    private void Start()
+    public void SetHover(bool value)
     {
-        _button = this.GetComponent<Button>();
-        _button.onClick.AddListener(OnResourcesClick);
+        _isHover = value;
+    }
+
+    public bool clicked;
+    
+    private void Update()
+    {
+        if (clicked)
+        {
+            if (Input.GetMouseButtonUp(0))
+            {
+                clicked = false;
+            }
+        }
+        else if (_isHover)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                clicked = true;
+                OnResourcesClick();
+
+            }
+        }
+
+        
     }
 
 
@@ -37,5 +60,7 @@ public class UIResource : MonoBehaviour
     {
 
     }
+
+    
 
 }
