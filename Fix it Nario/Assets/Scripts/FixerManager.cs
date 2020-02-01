@@ -37,28 +37,28 @@ public class FixerManager : MonoBehaviour
         {
             if (Input.GetMouseButtonUp(0))
             {
-                activeDragable.StopDrag();
+                Debug.Log("release");
+                activeDragable = null;
             }
             else
             {
-                activeDragable.SetPosition(GetWorldToMouseScreenPosition());
+                activeDragable.transform.position = GetWorldToMouseScreenPosition();
             }
         }
     }
 
-    DraggableObject activeDragable;
+    GameObject activeDragable;
 
     public void CreateResourceInScene(int id)
     {
         Debug.Log("CreateResource Id : "  + id);
-        var gameObj = Instantiate(resourcesGo[id], GetWorldToMouseScreenPosition(), Quaternion.identity);
-        activeDragable = gameObj.GetComponent<DraggableObject>();
-        activeDragable.StartDrag();
+        activeDragable = Instantiate(resourcesGo[id], GetWorldToMouseScreenPosition(), Quaternion.identity);
+        //Debug.Break();
     }
 
     Vector3 GetWorldToMouseScreenPosition()
     {
-        Vector3 mousePos = Input.mousePosition;
-        return Camera.main.ScreenToWorldPoint(mousePos);
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        return mousePos;
     }
 }

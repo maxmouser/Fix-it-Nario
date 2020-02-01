@@ -10,13 +10,14 @@ public class GameManager : MonoBehaviour
     bool isGameInPause = false;
 
     private MovimientoPlayer1 playerM;
-    private FixerManager fixerM;
+    public FixerManager fixerM;
 
     // Start is called before the first frame update
     void Start()
     {
+        
         //Instantiate Platformer and Fixer
-        fixerM = Instantiate(FixerGO, Vector3.zero, Quaternion.identity).GetComponent<FixerManager>();
+        //fixerM = Instantiate(FixerGO, Vector3.zero, Quaternion.identity).GetComponent<FixerManager>();
     }
 
     // Update is called once per frame
@@ -24,7 +25,7 @@ public class GameManager : MonoBehaviour
     {
         if (!isGameInPause)
         {
-            //fixerM.UpdateFixerManager();
+            fixerM.UpdateFixerManager();
         }
     }
 }
