@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
     {
         if (!isGameInPause)
         {
-            fixerM.UpdateFixerManager();
+            //fixerM.UpdateFixerManager();
         }
     }
 }

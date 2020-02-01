@@ -64,6 +64,9 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\DraggableObject.cs" />
     <Compile Include="Assets\Scripts\FixerManager.cs" />
+    <Compile Include="Assets\Scripts\FixerSide\DragAndDrop.cs" />
+    <Compile Include="Assets\Scripts\FixerSide\UIResource.cs" />
+    <Compile Include="Assets\Scripts\FixerSide\UIResources.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\MovimientoPlayer1.cs" />
     <Compile Include="Assets\Scripts\Platformer.cs" />
