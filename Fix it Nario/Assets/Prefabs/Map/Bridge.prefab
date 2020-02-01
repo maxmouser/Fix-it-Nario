@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 7458831626607037105}
   - component: {fileID: 8938511822165596013}
   - component: {fileID: 2525858564072253737}
-  - component: {fileID: 5216856765664621837}
+  - component: {fileID: 2292687900691978453}
   m_Layer: 0
-  m_Name: Brick
+  m_Name: Bridge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -94,7 +94,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5216856765664621837
+--- !u!114 &2292687900691978453
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -5,14 +5,28 @@ using UnityEngine;
 public class DraggableObject : MonoBehaviour
 {
     // Start is called before the first frame update
-    void Start()
+    public bool isDraggable;
+
+    public void StartDrag()
     {
-        
+
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SetPosition(Vector3 pos)
     {
-        
+        transform.position = pos;
     }
+
+    public void StopDrag()
+    {
+
+    }
+
+    public void FreezePosition()
+    {
+        isDraggable = false;
+    }
+   
+    
+    
 }
