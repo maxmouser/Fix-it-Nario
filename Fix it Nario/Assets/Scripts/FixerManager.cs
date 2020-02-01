@@ -5,15 +5,17 @@ using System;
 
 public class FixerManager : MonoBehaviour
 {
-    // Start is called before the first frame update
     public Sprite[] resources;
     public int[] resourcesCuantity;
     public GameObject[] resourcesGo;
 
     public UIResources _uiResources;
 
+    Camera _mainCamera;
+
     void Start()
     {
+        _mainCamera = Camera.main;
         if (resources.Length + resourcesCuantity.Length != resourcesGo.Length * 2)
         {
             Debug.LogError("Error length");
@@ -30,14 +32,12 @@ public class FixerManager : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     public void UpdateFixerManager()
     {
         if (activeDragable != null)
         {
             if (Input.GetMouseButtonUp(0))
             {
-                Debug.Log("release");
                 activeDragable = null;
             }
             else
@@ -53,12 +53,14 @@ public class FixerManager : MonoBehaviour
     {
         Debug.Log("CreateResource Id : "  + id);
         activeDragable = Instantiate(resourcesGo[id], GetWorldToMouseScreenPosition(), Quaternion.identity);
-        //Debug.Break();
     }
 
     Vector3 GetWorldToMouseScreenPosition()
     {
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        return mousePos;
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Plane xy = new Plane(Vector3.forward, new Vector3(0, 0, Constants.Z_WORLD));
+        float distance;
+        xy.Raycast(ray, out distance);
+        return ray.GetPoint(distance);
     }
 }

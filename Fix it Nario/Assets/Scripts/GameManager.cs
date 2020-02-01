@@ -5,11 +5,8 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public GameObject PlatformerGO;
-    public GameObject FixerGO;
-
     bool isGameInPause = false;
 
-    private MovimientoPlayer1 playerM;
     public FixerManager fixerM;
 
     // Start is called before the first frame update

@@ -62,11 +62,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\MovimientoCamara.cs" />
     <Compile Include="Assets\Scripts\Constants.cs" />
     <Compile Include="Assets\Scripts\FixerManager.cs" />
     <Compile Include="Assets\Scripts\FixerSide\UIResource.cs" />
     <Compile Include="Assets\Scripts\FixerSide\UIResources.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\Mouse\Mouse.cs" />
     <Compile Include="Assets\Scripts\MovimientoPlayer1.cs" />
     <Compile Include="Assets\Scripts\Platformer.cs" />
     <Reference Include="Unity.Timeline.Editor">

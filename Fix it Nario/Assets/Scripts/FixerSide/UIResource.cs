@@ -12,6 +12,7 @@ public class UIResource : MonoBehaviour
 
     public void SetHover(bool value)
     {
+        Debug.Log("hover " + value); 
         _isHover = value;
     }
 
@@ -52,7 +53,6 @@ public class UIResource : MonoBehaviour
 
     private void OnResourcesClick()
     {
-        Debug.Log("Click Resource");
         _onClick();
     }
 
