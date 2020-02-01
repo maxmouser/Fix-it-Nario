@@ -48,7 +48,7 @@ public class MovimientoPlayer1 : MonoBehaviour
         {
             //this.transform.Translate(speed, 0.0f, 0.0f);
             //Transform.position = oldPosition;
-           this.transform.position = new Vector3(transform.position.x + speed, transform.position.y, transform.position.z );
+           this.transform.position = new Vector3(transform.position.x + speed * Time.deltaTime, transform.position.y, transform.position.z );
 
         }
 
@@ -56,7 +56,7 @@ public class MovimientoPlayer1 : MonoBehaviour
         {
             //this.transform.Translate(speed, 0.0f, 0.0f);
             //Transform.position = oldPosition;
-           this.transform.position = new Vector3(transform.position.x - speed, transform.position.y, transform.position.z);
+           this.transform.position = new Vector3(transform.position.x - speed * Time.deltaTime, transform.position.y, transform.position.z);
 
         }
 
@@ -64,7 +64,7 @@ public class MovimientoPlayer1 : MonoBehaviour
         {
             //this.transform.Translate(speed, 0.0f, 0.0f);
             //Transform.position = oldPosition;
-           this.transform.position = new Vector3(transform.position.x, transform.position.y+speed, transform.position.z);
+           this.transform.position = new Vector3(transform.position.x, transform.position.y+speed * Time.deltaTime, transform.position.z);
 
         }
         //float moveHorizontal = Input.GetAxis("Horizontal");
@@ -124,6 +124,8 @@ public class MovimientoPlayer1 : MonoBehaviour
         if (other.gameObject.tag == "Stairs")
         {
             stairsCollision = true;
+            isFalling = false;
+            rb.useGravity = false;
         }
     }
 
@@ -132,6 +134,7 @@ public class MovimientoPlayer1 : MonoBehaviour
         if (other.gameObject.tag == "Stairs")
         {
             stairsCollision = false;
+            rb.useGravity = true;
         }
     }
 
