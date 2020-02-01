@@ -123,8 +123,15 @@ public class MovimientoPlayer1 : MonoBehaviour
 
         if (other.gameObject.tag == "Stairs")
         {
-        	print("Collision escalera");
             stairsCollision = true;
+        }
+    }
+
+    void OnTriggerExit(Collider other){
+
+        if (other.gameObject.tag == "Stairs")
+        {
+            stairsCollision = false;
         }
     }
 
