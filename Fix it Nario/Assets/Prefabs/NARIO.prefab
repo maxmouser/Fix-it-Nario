@@ -1221,6 +1221,7 @@ MonoBehaviour:
   isFalling: 0
   isGrounded: 1
   stairsCollision: 0
+  collisionPusherCamera: 0
 --- !u!54 &8364272604685655108
 Rigidbody:
   m_ObjectHideFlags: 0
