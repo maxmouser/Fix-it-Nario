@@ -33,11 +33,32 @@ public class FixerManager : MonoBehaviour
     // Update is called once per frame
     public void UpdateFixerManager()
     {
-        
+        if (activeDragable != null)
+        {
+            if (Input.GetMouseButtonUp(0))
+            {
+                activeDragable.StopDrag();
+            }
+            else
+            {
+                activeDragable.SetPosition(GetWorldToMouseScreenPosition());
+            }
+        }
     }
+
+    DraggableObject activeDragable;
 
     public void CreateResourceInScene(int id)
     {
         Debug.Log("CreateResource Id : "  + id);
+        var gameObj = Instantiate(resourcesGo[id], GetWorldToMouseScreenPosition(), Quaternion.identity);
+        activeDragable = gameObj.GetComponent<DraggableObject>();
+        activeDragable.StartDrag();
+    }
+
+    Vector3 GetWorldToMouseScreenPosition()
+    {
+        Vector3 mousePos = Input.mousePosition;
+        return Camera.main.ScreenToWorldPoint(mousePos);
     }
 }
