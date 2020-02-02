@@ -11,9 +11,11 @@ public class MovimientoPlayer1 : MonoBehaviour
     public float speed = 0.5f;
 
     public float jumpForce = 20;
-
     public float alturaSalto= 5;
-
+	public float alturaSaltada;
+	public float alturaDeSaltoInicial;
+	public float alturaSaltoActual;
+	public float deltaSalto;
     public float fallForce=-5;
 
     public bool isFalling= false;
@@ -21,6 +23,7 @@ public class MovimientoPlayer1 : MonoBehaviour
     public bool isJumping =false;
     public bool stairsCollision = false;
     public bool collisionPusherCamera = false;
+
 
     void Start()
     {
@@ -65,7 +68,8 @@ public class MovimientoPlayer1 : MonoBehaviour
 
     public void fall()
     {
-		if (this.transform.position.y >= alturaSalto && isJumping)
+		//if (this.transform.position.y >= alturaSalto && isJumping) // Si no esta tocando la escalera OR si no esta tocando el piso 
+        if ((!isGrounded && deltaSalto >= alturaSalto && isJumping) || (!isGrounded  && !stairsCollision && !isJumping) )
         {
             isFalling = true;
         }
@@ -78,15 +82,29 @@ public class MovimientoPlayer1 : MonoBehaviour
 
     public void jump()
     {
+    	
+    	
+    	//float alturaSaltada = alturaDeSaltoInicial-alturaSaltoActual;
+    	
         if (isGrounded)
         {
-            if ( Input.GetKey(KeyCode.Space))
+            if (Input.GetKey(KeyCode.Space))
             {
             	isJumping = true;
+            	alturaDeSaltoInicial = this.transform.position.y;            	
                 rb.AddForce(0, jumpForce, 0, ForceMode.Impulse);
                 //rb.velocity = Vector3.up * jumpForce;
             }
         }
+
+        if(isJumping){
+         	alturaSaltoActual = this.transform.position.y;
+        }
+       	print("altura salto actual "+  alturaSaltoActual);
+		print("altura salto inicial  "+ alturaDeSaltoInicial);
+        
+        deltaSalto = alturaSaltoActual - alturaDeSaltoInicial;
+		print("delta de salto  "+ alturaDeSaltoInicial);
 
     }
 
