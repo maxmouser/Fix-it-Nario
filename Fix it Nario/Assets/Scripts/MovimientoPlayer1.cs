@@ -55,12 +55,14 @@ public class MovimientoPlayer1 : MonoBehaviour
 
        if(Input.GetKey(KeyCode.D))
         {
+            anim.SetBool("Idle", false);
             anim.SetBool("Camina", true);
             this.transform.position = new Vector3(transform.position.x + speed * Time.deltaTime, transform.position.y, transform.position.z );
         }
 
        else if(Input.GetKey(KeyCode.A) && !collisionEmpujeBack)
         {
+            anim.SetBool("Idle", false);
             anim.SetBool("Camina", true);
             this.transform.Translate(10 * transform.right * Time.deltaTime);
            //this.transform.position = new Vector3(transform.position.x - speed * Time.deltaTime, transform.position.y, transform.position.z);
@@ -68,14 +70,18 @@ public class MovimientoPlayer1 : MonoBehaviour
 
        	else if(Input.GetKey(KeyCode.W) && stairsCollision)
         {
-           this.transform.position = new Vector3(transform.position.x, transform.position.y+speed * Time.deltaTime, transform.position.z);
+            anim.SetBool("Escalar", true);
+            this.transform.position = new Vector3(transform.position.x, transform.position.y+speed * Time.deltaTime, transform.position.z);
         }
        	else if(Input.GetKey(KeyCode.S) && stairsCollision)
         {
-           this.transform.position = new Vector3(transform.position.x, transform.position.y-speed * Time.deltaTime, transform.position.z);
+            anim.SetBool("Escalar", true);
+            this.transform.position = new Vector3(transform.position.x, transform.position.y-speed * Time.deltaTime, transform.position.z);
         }
         else
         {
+            anim.SetBool("Idle", true);
+            anim.SetBool("Escalar", false);
             anim.SetBool("Camina", false);
         }
         //float moveHorizontal = Input.GetAxis("Horizontal");
@@ -124,10 +130,14 @@ public class MovimientoPlayer1 : MonoBehaviour
 
         if (other.gameObject.tag == "Stairs")
         {
+            anim.SetBool("Escalar", true);
+            anim.SetBool("Camina", false);
+            anim.SetBool("Idle", false);
             stairsCollision = true;
             isFalling = false;
             rb.useGravity = false;
             //rb.useGravity = false;
+            
         }
         if (other.gameObject.layer == 10)//Layer 10 es el empujador de la camara Back
         {
@@ -145,6 +155,8 @@ public class MovimientoPlayer1 : MonoBehaviour
         {
             stairsCollision = false;
             rb.useGravity = true;
+            anim.SetBool("Escalar", false);
+            anim.SetBool("Idle", true);
         }
         //if (other.gameObject.layer == 10){
         //    collisionEmpujeBack = false;
