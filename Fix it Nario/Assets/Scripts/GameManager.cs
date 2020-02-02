@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     {
         isGameInPause = false;
         player.pause = false;
+        player._onPlayerDeath = OnPlayerDeath;
     }
 
 
@@ -36,7 +37,9 @@ public class GameManager : MonoBehaviour
 
     private void OnPlayerDeath()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("GameOver");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("LevelOne");
+
+        //UnityEngine.SceneManagement.SceneManager.LoadScene("GameOver");
     }
 
     private void OnWin()
