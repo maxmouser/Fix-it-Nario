@@ -40,7 +40,7 @@ public class MovimientoPlayer1 : MonoBehaviour
 
     void FixedUpdate()
     {
-        //if (!pause)
+        if (!pause)
         {
             
             fall();
