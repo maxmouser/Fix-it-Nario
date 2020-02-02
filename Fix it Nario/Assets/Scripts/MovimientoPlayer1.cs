@@ -49,6 +49,8 @@ public class MovimientoPlayer1 : MonoBehaviour
             chequeoMuerte();
         }
     }
+
+    
   
     public void movimientoHorizontal(){
 
@@ -64,7 +66,9 @@ public class MovimientoPlayer1 : MonoBehaviour
         {
             anim.SetBool("Idle", false);
             anim.SetBool("Camina", true);
-            this.transform.Translate(10 * transform.right * Time.deltaTime);
+            this.transform.position = new Vector3(transform.position.x + (-speed) * Time.deltaTime, transform.position.y, transform.position.z);
+
+            
            //this.transform.position = new Vector3(transform.position.x - speed * Time.deltaTime, transform.position.y, transform.position.z);
         }
 
@@ -150,11 +154,11 @@ public class MovimientoPlayer1 : MonoBehaviour
             stairsCollision = true;
             isFalling = false;
             rb.useGravity = false;
-            //rb.useGravity = false;            
+            //rb.useGravity = false;
         }
         if (other.gameObject.layer == 10)//Layer 10 es el empujador de la camara Back
         {
-            collisionEmpujeBack = true;        
+            collisionEmpujeBack = true;
         }
         if (other.gameObject.layer == 12)//Layer 10 es el empujador de la camara Back
         {
@@ -162,7 +166,8 @@ public class MovimientoPlayer1 : MonoBehaviour
         }
     }
 
-        void OnTriggerExit(Collider other){
+    void OnTriggerExit(Collider other)
+    {
 
         if (other.gameObject.tag == "Stairs")
         {
