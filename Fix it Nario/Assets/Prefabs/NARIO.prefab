@@ -1518,13 +1518,13 @@ MonoBehaviour:
   rb: {fileID: 0}
   speed: 7
   pause: 1
-  jumpForce: 12
-  alturaSalto: 4
+  jumpForce: 5
+  alturaSalto: 1.5
   alturaSaltada: 0
   alturaDeSaltoInicial: 0
   alturaSaltoActual: 0
   deltaSalto: 0
-  fallForce: -2.5
+  fallForce: -1.5
   isFalling: 0
   isGrounded: 1
   isJumping: 0
