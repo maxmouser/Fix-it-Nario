@@ -117,16 +117,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1811f8b7192f99d439ce69c0093427e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resources:
+  resourcesSprites:
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  resourcesCuantity: 050000000500000005000000
+  resourcesCuantity: 0500000005000000
   resourcesGo:
   - {fileID: 119982983738964877, guid: e346649ee84bbc048b69d251ec4f843e, type: 3}
   - {fileID: 3085626396597049482, guid: b89029c25a71a6c4bbaa0d8d41c7f3ae, type: 3}
-  - {fileID: 1447581254341494439, guid: f4247caf7b1299e46aea15ee479b97d4, type: 3}
   _uiResources: {fileID: 4557323322118314620}
+  resourceCreatePerCollectable: 1
 --- !u!1 &4397274860128151042
 GameObject:
   m_ObjectHideFlags: 0
