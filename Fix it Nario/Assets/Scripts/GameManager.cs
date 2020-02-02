@@ -16,19 +16,11 @@ public class GameManager : MonoBehaviour
         fixerM.StartCreateResources();
     }
 
-    private void StartLevel()
+    private void Start()
     {
         isGameInPause = false;
     }
 
-
-    private void FixedUpdate()
-    {
-        if (!isGameInPause)
-        {
-            player.PlayerFixedUpdate();
-        }
-    }
 
     void Update()
     {

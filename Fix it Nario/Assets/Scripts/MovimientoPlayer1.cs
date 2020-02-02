@@ -31,7 +31,7 @@ public class MovimientoPlayer1 : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
-    public void PlayerFixedUpdate()
+    void FixedUpdate()
     {
         fall();
  		jump();
