@@ -100,11 +100,11 @@ public class MovimientoPlayer1 : MonoBehaviour
         if(isJumping){
          	alturaSaltoActual = this.transform.position.y;
         }
-       	print("altura salto actual "+  alturaSaltoActual);
-		print("altura salto inicial  "+ alturaDeSaltoInicial);
+       	//print("altura salto actual "+  alturaSaltoActual);
+		//print("altura salto inicial  "+ alturaDeSaltoInicial);
         
         deltaSalto = alturaSaltoActual - alturaDeSaltoInicial;
-		print("delta de salto  "+ alturaDeSaltoInicial);
+		//print("delta de salto  "+ alturaDeSaltoInicial);
 
     }
 
