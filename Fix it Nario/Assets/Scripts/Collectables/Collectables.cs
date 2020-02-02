@@ -16,7 +16,7 @@ public class Collectables : MonoBehaviour
 
     private void Update()
     {
-        view.transform.Rotate(Vector3.up * speed * Time.deltaTime);        
+        view.transform.Rotate(Vector3.forward * speed * Time.deltaTime);        
     }
 
     private const int PLAYER_LAYER = 8;

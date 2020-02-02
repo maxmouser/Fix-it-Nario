@@ -64,7 +64,6 @@ public class UIButtonResource : MonoBehaviour
 
     public void ModifyCuantity(int newCuantity)
     {
-        Debug.Log("ModifyCuantity " + newCuantity);
         CuantityText.text = newCuantity.ToString();
 
     }
