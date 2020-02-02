@@ -61,6 +61,10 @@ public class MovimientoPlayer1 : MonoBehaviour
         {
            this.transform.position = new Vector3(transform.position.x, transform.position.y+speed * Time.deltaTime, transform.position.z);
         }
+       	if(Input.GetKey(KeyCode.S) && stairsCollision)
+        {
+           this.transform.position = new Vector3(transform.position.x, transform.position.y-speed * Time.deltaTime, transform.position.z);
+        }
         //float moveHorizontal = Input.GetAxis("Horizontal");
         //Vector3 movement = new Vector3(moveHorizontal, 0.0f, 0);
     	//rb.AddForce(movement * speed);
