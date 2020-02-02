@@ -28,19 +28,25 @@ public class MovimientoPlayer1 : MonoBehaviour
     public bool collisionEmpujeBack = false;
     public bool colisionEmpujeFront = false;
 
+    public Animator anim;
 	public Action _onPlayerDeath;
-    public Action _onWin;    void Start()
+    public Action _onWin;
+
+    void Start()
     {
         rb = GetComponent<Rigidbody>();
+        anim = GetComponentInChildren<Animator>();
     }
 
     void FixedUpdate()
     {
-        if (!pause)
+        //if (!pause)
         {
+            
             fall();
             jump();
             movimientoHorizontal();
+            chequeoMuerte();
         }
     }
   
@@ -49,26 +55,32 @@ public class MovimientoPlayer1 : MonoBehaviour
 
        if(Input.GetKey(KeyCode.D))
         {
-           this.transform.position = new Vector3(transform.position.x + speed * Time.deltaTime, transform.position.y, transform.position.z );
+            anim.SetBool("Camina", true);
+            this.transform.position = new Vector3(transform.position.x + speed * Time.deltaTime, transform.position.y, transform.position.z );
         }
 
-       if(Input.GetKey(KeyCode.A) && !collisionEmpujeBack)
+       else if(Input.GetKey(KeyCode.A) && !collisionEmpujeBack)
         {
-        	this.transform.Translate(10 * transform.right * Time.deltaTime);
+            anim.SetBool("Camina", true);
+            this.transform.Translate(10 * transform.right * Time.deltaTime);
            //this.transform.position = new Vector3(transform.position.x - speed * Time.deltaTime, transform.position.y, transform.position.z);
         }
 
-       	if(Input.GetKey(KeyCode.W) && stairsCollision)
+       	else if(Input.GetKey(KeyCode.W) && stairsCollision)
         {
            this.transform.position = new Vector3(transform.position.x, transform.position.y+speed * Time.deltaTime, transform.position.z);
         }
-       	if(Input.GetKey(KeyCode.S) && stairsCollision)
+       	else if(Input.GetKey(KeyCode.S) && stairsCollision)
         {
            this.transform.position = new Vector3(transform.position.x, transform.position.y-speed * Time.deltaTime, transform.position.z);
         }
+        else
+        {
+            anim.SetBool("Camina", false);
+        }
         //float moveHorizontal = Input.GetAxis("Horizontal");
         //Vector3 movement = new Vector3(moveHorizontal, 0.0f, 0);
-    	//rb.AddForce(movement * speed);
+        //rb.AddForce(movement * speed);
     }
 
     public void fall()
@@ -91,7 +103,8 @@ public class MovimientoPlayer1 : MonoBehaviour
         {
             if ( Input.GetKey(KeyCode.Space))
             {
-            	isJumping = true;
+                anim.SetBool("Salta", true);
+                isJumping = true;
             	alturaDeSaltoInicial = this.transform.position.y;            	
                 rb.AddForce(0, jumpForce, 0, ForceMode.Impulse);
                 //rb.velocity = Vector3.up * jumpForce;
@@ -122,7 +135,7 @@ public class MovimientoPlayer1 : MonoBehaviour
         }
         if (other.gameObject.layer == 12)//Layer 10 es el empujador de la camara Back
         {
-            collisionEmpujeBack = true;
+            colisionEmpujeFront = true;
         }
     }
 
@@ -133,9 +146,19 @@ public class MovimientoPlayer1 : MonoBehaviour
             stairsCollision = false;
             rb.useGravity = true;
         }
-        if (other.gameObject.layer == 10){
-            collisionEmpujeBack = false;
-        }
+        //if (other.gameObject.layer == 10){
+        //    collisionEmpujeBack = false;
+        //}
+        //if (other.gameObject.layer == 12)
+        //{
+        //    collisionEmpujeBack = false;
+        //}
+    }
+
+    public void chequeoMuerte() //Esta funcion chequea si lo chocan 2 objetos a la vez
+    {
+        //if()
+
     }
 
     public void muerte(){
@@ -144,19 +167,6 @@ public class MovimientoPlayer1 : MonoBehaviour
         {
             _onPlayerDeath();
         }
-    }
-   
-
-    //void OnTriggerEnter(Collider other){
-//
-    //     if (other.gameObject.layer == 10){ //Layer 10 es el empujador de la camara
-    //     	collisionEmpujeBack = true;
-    //          //this.transform.position = new Vector3(transform.position.x + 10 * Time.deltaTime, transform.position.y, transform.position.z);
-    //          //this.transform.Translate(-20 * transform.right * Time.deltaTime);
-//
-    //     }
-  	//}
-
-
+    }  
 
 }
