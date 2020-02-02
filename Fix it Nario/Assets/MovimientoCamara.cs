@@ -13,18 +13,38 @@ public class MovimientoCamara : MonoBehaviour
     private float shakeAmount = 0.7f;
 
     public Action onEndShake;
+    public bool ShakeOnStart;
     // Start is called before the first frame update
     void Start()
     {
-        originalPos = this.transform.position;
-        Invoke("StartShake", 1);
+        if (ShakeOnStart)
+        {
+            Invoke("StartShake", 1);
+        }
+        else
+        {
+            StartMoving();
+        }
     }
 
     void StartShake()
     {
+        originalPos = this.transform.position;
         isShaking = true;
+        Invoke("DestroySomething", 1.5f);
         Invoke("StopShake", 2.5f);
     }
+
+    public GameObject weDestroy;
+    void DestroySomething()
+    {
+        if (weDestroy != null)
+        {
+            Destroy(weDestroy);
+
+        }
+    }
+
 
     void StopShake()
     {
