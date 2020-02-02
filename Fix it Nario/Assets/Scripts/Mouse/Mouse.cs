@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Mouse : MonoBehaviour
 {
     public Rect mouseLimits;
-    public Image _mouseImage;
+    public GameObject _mouseImage;
     
     public float PercentScreenMove;
 

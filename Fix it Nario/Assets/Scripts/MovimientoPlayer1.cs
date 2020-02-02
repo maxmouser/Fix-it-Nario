@@ -11,6 +11,8 @@ public class MovimientoPlayer1 : MonoBehaviour
 
     public float speed = 0.5f;
 
+    public bool pause = true;
+
     public float jumpForce = 20;
     public float alturaSalto= 5;
 	public float alturaSaltada;
@@ -34,10 +36,12 @@ public class MovimientoPlayer1 : MonoBehaviour
 
     void FixedUpdate()
     {
-        fall();
- 		jump();
- 		movimientoHorizontal();
-
+        if (!pause)
+        {
+            fall();
+            jump();
+            movimientoHorizontal();
+        }
     }
   
     public void movimientoHorizontal(){

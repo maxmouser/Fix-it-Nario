@@ -65,6 +65,7 @@
     <Compile Include="Assets\GameOver.cs" />
     <Compile Include="Assets\MainMenu.cs" />
     <Compile Include="Assets\MovimientoCamara.cs" />
+    <Compile Include="Assets\ScriptColliderPies.cs" />
     <Compile Include="Assets\Scripts\Collectables\Collectables.cs" />
     <Compile Include="Assets\Scripts\Constants.cs" />
     <Compile Include="Assets\Scripts\FixerManager.cs" />
