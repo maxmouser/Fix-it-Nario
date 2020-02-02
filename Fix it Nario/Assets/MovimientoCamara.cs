@@ -23,6 +23,7 @@ public class MovimientoCamara : MonoBehaviour
         }
         else
         {
+            DestroySomething();
             StartMoving();
         }
     }
