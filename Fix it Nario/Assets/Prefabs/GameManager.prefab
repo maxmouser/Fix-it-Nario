@@ -130,7 +130,7 @@ GameObject:
   - component: {fileID: 6412369035765542055}
   m_Layer: 0
   m_Name: FixerManager
-  m_TagString: Untagged
+  m_TagString: FixerManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
