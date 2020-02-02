@@ -23,9 +23,16 @@ public class MovimientoCamara : MonoBehaviour
         }
         else
         {
-            DestroySomething();
-            StartMoving();
+            Invoke("StartingMoving", 1);
+
         }
+    }
+
+    void StartingMoving()
+    {
+        onEndShake();
+        DestroySomething();
+        StartMoving();
     }
 
     void StartShake()
