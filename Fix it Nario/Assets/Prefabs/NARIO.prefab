@@ -92,8 +92,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 0.24, z: 1}
+  m_Center: {x: 0, y: -0.21, z: 0}
 --- !u!114 &986182738
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1428,9 +1428,9 @@ GameObject:
   - component: {fileID: 8364272604685655111}
   - component: {fileID: 8364272604685655110}
   - component: {fileID: 8364272604685655113}
-  - component: {fileID: 8364272604685655112}
   - component: {fileID: 8364272604685655109}
   - component: {fileID: 8364272604685655108}
+  - component: {fileID: 2651137596850903765}
   m_Layer: 8
   m_Name: NARIO
   m_TagString: Player
@@ -1503,19 +1503,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &8364272604685655112
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8364272604685655115}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2, y: 1.5, z: 1}
-  m_Center: {x: -0.5, y: 0, z: 0}
 --- !u!114 &8364272604685655109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1561,6 +1548,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 120
   m_CollisionDetection: 0
+--- !u!136 &2651137596850903765
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8364272604685655115}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.29
+  m_Height: 1.36
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.15, z: 0}
 --- !u!1 &8514126487848991640
 GameObject:
   m_ObjectHideFlags: 0
