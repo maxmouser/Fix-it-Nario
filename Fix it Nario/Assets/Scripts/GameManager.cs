@@ -35,11 +35,19 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public AudioClip hit;
     private void OnPlayerDeath()
+    {
+        Constants.AUDIO_MANAGER.PlayFx(hit, 1);
+        Invoke("LoadAgain", hit.length + 0.5f);
+
+        //UnityEngine.SceneManagement.SceneManager.LoadScene("GameOver");
+    }
+
+    private void LoadAgain()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene("LevelOne");
 
-        //UnityEngine.SceneManagement.SceneManager.LoadScene("GameOver");
     }
 
     private void OnWin()

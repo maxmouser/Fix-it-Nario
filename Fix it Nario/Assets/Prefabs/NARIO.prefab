@@ -1344,6 +1344,7 @@ MonoBehaviour:
   collisionEmpujeBack: 0
   colisionEmpujeFront: 0
   anim: {fileID: 0}
+  jumpFX: {fileID: 8300000, guid: 2a4ec7ba98d34b34db8bc3c128c88191, type: 3}
 --- !u!54 &8364272604685655108
 Rigidbody:
   m_ObjectHideFlags: 0

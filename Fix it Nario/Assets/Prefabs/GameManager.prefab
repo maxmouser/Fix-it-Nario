@@ -170,6 +170,7 @@ MonoBehaviour:
   - {fileID: 119982983738964877, guid: e346649ee84bbc048b69d251ec4f843e, type: 3}
   - {fileID: 3085626396597049482, guid: b89029c25a71a6c4bbaa0d8d41c7f3ae, type: 3}
   _uiResources: {fileID: 4557323322118314620}
+  placeFx: {fileID: 8300000, guid: 3c5b195ca4b03aa45afbb1b264587129, type: 3}
   resourceCreatePerCollectable: 1
 --- !u!1 &4397274860128151042
 GameObject:
@@ -220,6 +221,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _mouseManager: {fileID: 613138171}
   fixerM: {fileID: 6412369035765542055}
+  hit: {fileID: 8300000, guid: 26a1f86e4c0ff234e9a64b0999e75cf5, type: 3}
 --- !u!114 &613138171
 MonoBehaviour:
   m_ObjectHideFlags: 0

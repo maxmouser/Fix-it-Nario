@@ -121,12 +121,14 @@ public class MovimientoPlayer1 : MonoBehaviour
         }
     }
 
+    public AudioClip jumpFX;
     public void jump()
     {
         if (isGrounded)
         {
             if ( Input.GetKey(KeyCode.Space))
             {
+                Constants.AUDIO_MANAGER.PlayFx(jumpFX, 1);
                 anim.SetBool("Salta", true);
                 isJumping = true;
             	alturaDeSaltoInicial = this.transform.position.y;            	

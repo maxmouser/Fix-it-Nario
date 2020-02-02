@@ -42,6 +42,7 @@ public class FixerManager : MonoBehaviour
         {
             if (Input.GetMouseButtonUp(0))
             {
+                Constants.AUDIO_MANAGER.PlayFx(placeFx, 0.6f);
                 activeDragable = null;
             }
             else
@@ -52,6 +53,7 @@ public class FixerManager : MonoBehaviour
     }
 
     GameObject activeDragable;
+    public AudioClip placeFx;
 
     public void CreateResourceInScene(int id)
     {

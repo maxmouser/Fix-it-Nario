@@ -13,9 +13,10 @@ public class AudioManager : MonoBehaviour
         Constants.AUDIO_MANAGER = this;
     }
 
-    public void PlayFx(AudioClip clip)
+    public void PlayFx(AudioClip clip, float vol)
     {
         Fx.clip = clip;
+        Fx.volume = vol;
         Fx.Play();
     }
 }
