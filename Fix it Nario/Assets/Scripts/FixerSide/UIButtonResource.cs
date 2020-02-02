@@ -4,7 +4,7 @@ using UnityEngine.UI;
 using System;
 using UnityEngine;
 
-public class UIResource : MonoBehaviour
+public class UIButtonResource : MonoBehaviour
 {
     private Action _onClick;
     private int _cuantity;
@@ -12,6 +12,7 @@ public class UIResource : MonoBehaviour
 
     public void SetHover(bool value)
     {
+        //Debug.Log("hover " + value);
         _isHover = value;
     }
 
@@ -55,9 +56,9 @@ public class UIResource : MonoBehaviour
         _onClick();
     }
 
-    private void ModifyCuantity(int newCuantity)
+    public void ModifyCuantity(int newCuantity)
     {
-
+        
     }
 
     

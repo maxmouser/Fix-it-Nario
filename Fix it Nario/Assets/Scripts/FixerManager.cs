@@ -5,9 +5,10 @@ using System;
 
 public class FixerManager : MonoBehaviour
 {
-    public Sprite[] resources;
+    public Sprite[] resourcesSprites;
     public int[] resourcesCuantity;
     public GameObject[] resourcesGo;
+    
 
     public UIResources _uiResources;
 
@@ -16,19 +17,19 @@ public class FixerManager : MonoBehaviour
     void Start()
     {
         _mainCamera = Camera.main;
-        if (resources.Length + resourcesCuantity.Length != resourcesGo.Length * 2)
+        if (resourcesSprites.Length + resourcesCuantity.Length != resourcesGo.Length * 2)
         {
             Debug.LogError("Error length");
         }
 
-        for (int i = 0; i < resources.Length; i++)
+        for (int i = 0; i < resourcesSprites.Length; i++)
         {
             int index = i;
             _uiResources.CreateResource(
                 () => 
                 {
                     CreateResourceInScene(index);
-                }, resources[i], resourcesCuantity[i]);
+                }, resourcesSprites[i], resourcesCuantity[i]);
         }
     }
 
@@ -54,8 +55,18 @@ public class FixerManager : MonoBehaviour
 
     public void CreateResourceInScene(int id)
     {
-        Debug.Log("CreateResource Id : "  + id);
-        activeDragable = Instantiate(resourcesGo[id], GetWorldToMouseScreenPosition(), Quaternion.identity);
+        if (resourcesCuantity[id] > 0)
+        {
+            resourcesCuantity[id]--;
+            Debug.Log("CreateResource Id : " + id + " left: " + resourcesCuantity[id]);
+
+            activeDragable = Instantiate(resourcesGo[id], GetWorldToMouseScreenPosition(), Quaternion.identity);
+
+        }
+        else
+        {
+            Debug.Log("no item");
+        }
     }
 
     Vector3 GetWorldToMouseScreenPosition()
@@ -65,5 +76,14 @@ public class FixerManager : MonoBehaviour
         float distance;
         xy.Raycast(ray, out distance);
         return ray.GetPoint(distance);
+    }
+
+    public int resourceCreatePerCollectable = 1;
+    public void CreateResource()
+    {
+        int id = Mathf.RoundToInt(UnityEngine.Random.Range(0, resourcesGo.Length));
+        resourcesCuantity[id] += resourceCreatePerCollectable;
+        _uiResources.UpdateCuantity(id, resourcesCuantity[id]);
+
     }
 }
