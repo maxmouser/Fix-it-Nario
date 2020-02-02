@@ -62,6 +62,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\GameOver.cs" />
+    <Compile Include="Assets\MainMenu.cs" />
     <Compile Include="Assets\MovimientoCamara.cs" />
     <Compile Include="Assets\Scripts\Collectables\Collectables.cs" />
     <Compile Include="Assets\Scripts\Constants.cs" />
@@ -72,6 +74,7 @@
     <Compile Include="Assets\Scripts\Mouse\Mouse.cs" />
     <Compile Include="Assets\Scripts\MovimientoPlayer1.cs" />
     <Compile Include="Assets\Scripts\Platformer.cs" />
+    <Compile Include="Assets\Win.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Nario/Fix-it-Nario/Fix it Nario/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>

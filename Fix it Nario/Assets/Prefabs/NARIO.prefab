@@ -1121,7 +1121,7 @@ GameObject:
   - component: {fileID: 593487062}
   m_Layer: 8
   m_Name: NARIO
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1249,7 +1249,7 @@ Animator:
   m_GameObject: {fileID: 8364272604685655115}
   m_Enabled: 0
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ccc7a75cffce741c4af24fa5cc016c56, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
