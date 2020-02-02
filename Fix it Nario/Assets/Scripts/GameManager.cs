@@ -14,11 +14,13 @@ public class GameManager : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<MovimientoPlayer1>();
         fixerM.StartCreateResources();
+        Camera.main.GetComponent<MovimientoCamara>().onEndShake = StartToPlay;
     }
 
-    private void Start()
+    private void StartToPlay()
     {
         isGameInPause = false;
+        player.pause = false;
     }
 
 
