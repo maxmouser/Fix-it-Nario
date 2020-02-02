@@ -71,16 +71,30 @@ public class MovimientoPlayer1 : MonoBehaviour
        	else if(Input.GetKey(KeyCode.W) && stairsCollision)
         {
             anim.SetBool("Escalar", true);
+            anim.SetBool("Idle", false);
+            anim.SetBool("Camina", false);
             this.transform.position = new Vector3(transform.position.x, transform.position.y+speed * Time.deltaTime, transform.position.z);
         }
        	else if(Input.GetKey(KeyCode.S) && stairsCollision)
         {
             anim.SetBool("Escalar", true);
+            anim.SetBool("Idle", false);
+            anim.SetBool("Camina", false);
             this.transform.position = new Vector3(transform.position.x, transform.position.y-speed * Time.deltaTime, transform.position.z);
+        }
+        else if ((Input.GetKeyDown(KeyCode.LeftControl) && isGrounded) || (Input.GetKeyDown(KeyCode.LeftShift)))
+        {
+            //SE ACTIVA CABEZAZO
+            anim.SetBool("Head", true);
+            anim.SetBool("Camina", false);
+            anim.SetBool("Escalar", false);
+            anim.SetBool("Idle", false);
         }
         else
         {
+            //SE ACTIVA IDLE            
             anim.SetBool("Idle", true);
+            anim.SetBool("Head", false);
             anim.SetBool("Escalar", false);
             anim.SetBool("Camina", false);
         }
@@ -131,8 +145,8 @@ public class MovimientoPlayer1 : MonoBehaviour
         if (other.gameObject.tag == "Stairs")
         {
             anim.SetBool("Escalar", true);
-            anim.SetBool("Camina", false);
-            anim.SetBool("Idle", false);
+            //anim.SetBool("Camina", false);
+            //anim.SetBool("Idle", true);
             stairsCollision = true;
             isFalling = false;
             rb.useGravity = false;
