@@ -14,7 +14,7 @@ public class FixerManager : MonoBehaviour
 
     Camera _mainCamera;
 
-    void Start()
+    public void StartCreateResources()
     {
         _mainCamera = Camera.main;
         if (resourcesSprites.Length + resourcesCuantity.Length != resourcesGo.Length * 2)

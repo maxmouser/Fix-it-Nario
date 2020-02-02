@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class MovimientoPlayer1 : MonoBehaviour
 {
@@ -24,13 +25,13 @@ public class MovimientoPlayer1 : MonoBehaviour
     public bool stairsCollision = false;
     public bool collisionPusherCamera = false;
 
-
-    void Start()
+	public Action _onPlayerDeath;
+    public Action _onWin;    void Start()
     {
         rb = GetComponent<Rigidbody>();
     }
 
-    void FixedUpdate()
+    public void PlayerFixedUpdate()
     {
         fall();
  		jump();
@@ -38,10 +39,7 @@ public class MovimientoPlayer1 : MonoBehaviour
 
     }
 
-        void Update()
-    {
-		//GetComponent<Animation>().Play("Idle");
-    }
+  
 
     public void movimientoHorizontal(){
 
@@ -92,7 +90,7 @@ public class MovimientoPlayer1 : MonoBehaviour
     	
         if (isGrounded)
         {
-            if (Input.GetKey(KeyCode.Space))
+            if ( Input.GetKey(KeyCode.Space))
             {
             	isJumping = true;
             	alturaDeSaltoInicial = this.transform.position.y;            	
@@ -103,10 +101,10 @@ public class MovimientoPlayer1 : MonoBehaviour
 
         if(isJumping){
          	alturaSaltoActual = this.transform.position.y;
-        }
+    }
        	//print("altura salto actual "+  alturaSaltoActual);
 		//print("altura salto inicial  "+ alturaDeSaltoInicial);
-        
+
         deltaSalto = alturaSaltoActual - alturaDeSaltoInicial;
 		//print("delta de salto  "+ alturaDeSaltoInicial);
 
@@ -177,7 +175,11 @@ public class MovimientoPlayer1 : MonoBehaviour
     }
 
     void muerte(){
-    	print("MURIO EL PLAYER");
+    	//print("MURIO EL PLAYER");
+        if (_onPlayerDeath != null)
+        {
+            _onPlayerDeath();
+        }
 
     }
 

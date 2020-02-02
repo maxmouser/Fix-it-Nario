@@ -6,8 +6,29 @@ public class GameManager : MonoBehaviour
 {
     //public GameObject PlatformerGO;
     public Mouse _mouseManager;
-    bool isGameInPause = false;
+    bool isGameInPause = true;
     public FixerManager fixerM;
+    private MovimientoPlayer1 player;
+
+    private void Awake()
+    {
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<MovimientoPlayer1>();
+        fixerM.StartCreateResources();
+    }
+
+    private void StartLevel()
+    {
+        isGameInPause = false;
+    }
+
+
+    private void FixedUpdate()
+    {
+        if (!isGameInPause)
+        {
+            player.PlayerFixedUpdate();
+        }
+    }
 
     void Update()
     {
@@ -15,6 +36,18 @@ public class GameManager : MonoBehaviour
         {
             _mouseManager.UpdateMousePosition();
             fixerM.UpdateFixerManager(_mouseManager.CurrentMousePosition);
+            
         }
+    }
+
+    private void OnPlayerDeath()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("GameOver");
+    }
+
+    private void OnWin()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Win");
+
     }
 }
