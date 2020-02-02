@@ -142,7 +142,7 @@ public class MovimientoPlayer1 : MonoBehaviour
 
     void OnTriggerStay(Collider other){
 
-        if (other.gameObject.tag == "Stairs")
+        if (other.gameObject.tag == "Stairs" && !isJumping)
         {
             anim.SetBool("Escalar", true);
             //anim.SetBool("Camina", false);
@@ -150,8 +150,7 @@ public class MovimientoPlayer1 : MonoBehaviour
             stairsCollision = true;
             isFalling = false;
             rb.useGravity = false;
-            //rb.useGravity = false;
-            
+            //rb.useGravity = false;            
         }
         if (other.gameObject.layer == 10)//Layer 10 es el empujador de la camara Back
         {
