@@ -15,6 +15,9 @@ public class MovimientoCamara : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //velocidadCamara = Math.Log(Time.);
        this.transform.position = new Vector3(transform.position.x + velocidadCamara * Time.deltaTime, transform.position.y, transform.position.z );
+
+
     }
 }

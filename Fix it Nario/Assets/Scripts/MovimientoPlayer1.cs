@@ -23,7 +23,8 @@ public class MovimientoPlayer1 : MonoBehaviour
     public bool isGrounded;
     public bool isJumping =false;
     public bool stairsCollision = false;
-    public bool collisionPusherCamera = false;
+    public bool collisionEmpujeBack = false;
+    public bool colisionEmpujeFront = false;
 
 	public Action _onPlayerDeath;
     public Action _onWin;    void Start()
@@ -38,9 +39,7 @@ public class MovimientoPlayer1 : MonoBehaviour
  		movimientoHorizontal();
 
     }
-
   
-
     public void movimientoHorizontal(){
 
 
@@ -49,7 +48,7 @@ public class MovimientoPlayer1 : MonoBehaviour
            this.transform.position = new Vector3(transform.position.x + speed * Time.deltaTime, transform.position.y, transform.position.z );
         }
 
-       if(Input.GetKey(KeyCode.A) && !collisionPusherCamera)
+       if(Input.GetKey(KeyCode.A) && !collisionEmpujeBack)
         {
         	this.transform.Translate(10 * transform.right * Time.deltaTime);
            //this.transform.position = new Vector3(transform.position.x - speed * Time.deltaTime, transform.position.y, transform.position.z);
@@ -84,10 +83,6 @@ public class MovimientoPlayer1 : MonoBehaviour
 
     public void jump()
     {
-    	
-    	
-    	//float alturaSaltada = alturaDeSaltoInicial-alturaSaltoActual;
-    	
         if (isGrounded)
         {
             if ( Input.GetKey(KeyCode.Space))
@@ -101,35 +96,11 @@ public class MovimientoPlayer1 : MonoBehaviour
 
         if(isJumping){
          	alturaSaltoActual = this.transform.position.y;
-    }
-       	//print("altura salto actual "+  alturaSaltoActual);
-		//print("altura salto inicial  "+ alturaDeSaltoInicial);
-
+        }
         deltaSalto = alturaSaltoActual - alturaDeSaltoInicial;
-		//print("delta de salto  "+ alturaDeSaltoInicial);
-
     }
 
-    void OnCollisionEnter(Collision other)
-    {
-        if (other.gameObject.tag == "Ground")
-        {
-            isGrounded = true;
-            isFalling = false;
-            isJumping = false;
-        }
-
-    }
-
-    void OnCollisionExit(Collision other)
-    {
-        if (other.gameObject.tag == "Ground")
-        {
-            isGrounded = false;
-
-        }
-        
-    }
+ 
 
 
     void OnTriggerStay(Collider other){
@@ -141,27 +112,17 @@ public class MovimientoPlayer1 : MonoBehaviour
             rb.useGravity = false;
             //rb.useGravity = false;
         }
+        if (other.gameObject.layer == 10)//Layer 10 es el empujador de la camara Back
+        {
+            collisionEmpujeBack = true;        
+        }
+        if (other.gameObject.layer == 12)//Layer 10 es el empujador de la camara Back
+        {
+            collisionEmpujeBack = true;
+        }
     }
-   
 
-    void OnTriggerEnter(Collider other){
-
-         if (other.gameObject.layer == 10){ //Layer 10 es el empujador de la camara
-         	collisionPusherCamera = true;
-              //this.transform.position = new Vector3(transform.position.x + 10 * Time.deltaTime, transform.position.y, transform.position.z);
-              //this.transform.Translate(-20 * transform.right * Time.deltaTime);
-
-         }
-          if (other.gameObject.layer == 11){ //Layer 11 es el el piso de muerte
-				print("toca el objeto de piso de muerte con el nombre: " + other.gameObject.name);
-				muerte();
-              //this.transform.position = new Vector3(transform.position.x + 10 * Time.deltaTime, transform.position.y, transform.position.z);
-              //this.transform.Translate(-20 * transform.right * Time.deltaTime);
-
-         }
-  	}
-
-    void OnTriggerExit(Collider other){
+        void OnTriggerExit(Collider other){
 
         if (other.gameObject.tag == "Stairs")
         {
@@ -169,18 +130,29 @@ public class MovimientoPlayer1 : MonoBehaviour
             rb.useGravity = true;
         }
         if (other.gameObject.layer == 10){
-
-        	collisionPusherCamera = false;
+            collisionEmpujeBack = false;
         }
     }
 
-    void muerte(){
-    	//print("MURIO EL PLAYER");
+    public void muerte(){
+        //print("MURIO EL PLAYER");
         if (_onPlayerDeath != null)
         {
             _onPlayerDeath();
         }
-
     }
+   
+
+    //void OnTriggerEnter(Collider other){
+//
+    //     if (other.gameObject.layer == 10){ //Layer 10 es el empujador de la camara
+    //     	collisionEmpujeBack = true;
+    //          //this.transform.position = new Vector3(transform.position.x + 10 * Time.deltaTime, transform.position.y, transform.position.z);
+    //          //this.transform.Translate(-20 * transform.right * Time.deltaTime);
+//
+    //     }
+  	//}
+
+
 
 }

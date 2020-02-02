@@ -7,6 +7,9 @@ TagManager:
   - Ground
   - Stairs
   - FixerManager
+  - ColliderBack
+  - ColliderPies
+  - ColliderFront
   layers:
   - Default
   - TransparentFX
@@ -18,9 +21,9 @@ TagManager:
   - 
   - Player
   - Ground
-  - EmpujadorPlayer
+  - EmpujeBack
   - PisoMuerte
-  - 
+  - EmpujeFront
   - 
   - 
   - 
