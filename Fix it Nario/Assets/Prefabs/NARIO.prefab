@@ -1135,7 +1135,7 @@ Transform:
   m_GameObject: {fileID: 8364272604685655115}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 1.22, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.6070142, y: 1.6070142, z: 1.6070142}
   m_Children:
   - {fileID: 3560492776005227941}
   m_Father: {fileID: 0}
@@ -1220,6 +1220,7 @@ MonoBehaviour:
   fallForce: -2.5
   isFalling: 0
   isGrounded: 1
+  isJumping: 0
   stairsCollision: 0
   collisionPusherCamera: 0
 --- !u!54 &8364272604685655108

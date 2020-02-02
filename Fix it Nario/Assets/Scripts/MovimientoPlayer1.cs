@@ -18,6 +18,7 @@ public class MovimientoPlayer1 : MonoBehaviour
 
     public bool isFalling= false;
     public bool isGrounded;
+    public bool isJumping =false;
     public bool stairsCollision = false;
     public bool collisionPusherCamera = false;
 
@@ -64,7 +65,7 @@ public class MovimientoPlayer1 : MonoBehaviour
 
     public void fall()
     {
-		if (this.transform.position.y >= alturaSalto)
+		if (this.transform.position.y >= alturaSalto && isJumping)
         {
             isFalling = true;
         }
@@ -79,9 +80,9 @@ public class MovimientoPlayer1 : MonoBehaviour
     {
         if (isGrounded)
         {
-
             if ( Input.GetKey(KeyCode.Space))
             {
+            	isJumping = true;
                 rb.AddForce(0, jumpForce, 0, ForceMode.Impulse);
                 //rb.velocity = Vector3.up * jumpForce;
             }
@@ -95,6 +96,7 @@ public class MovimientoPlayer1 : MonoBehaviour
         {
             isGrounded = true;
             isFalling = false;
+            isJumping = false;
         }
 
     }
@@ -104,6 +106,7 @@ public class MovimientoPlayer1 : MonoBehaviour
         if (other.gameObject.tag == "Ground")
         {
             isGrounded = false;
+
         }
         
     }
@@ -116,6 +119,7 @@ public class MovimientoPlayer1 : MonoBehaviour
             stairsCollision = true;
             isFalling = false;
             rb.useGravity = false;
+            //rb.useGravity = false;
         }
     }
    
@@ -129,6 +133,7 @@ public class MovimientoPlayer1 : MonoBehaviour
 
          }
           if (other.gameObject.layer == 11){ //Layer 11 es el el piso de muerte
+				print("toca el objeto de piso de muerte con el nombre: " + other.gameObject.name);
 				muerte();
               //this.transform.position = new Vector3(transform.position.x + 10 * Time.deltaTime, transform.position.y, transform.position.z);
               //this.transform.Translate(-20 * transform.right * Time.deltaTime);
