@@ -9,6 +9,11 @@ public class MainMenu : MonoBehaviour
         UnityEngine.SceneManagement.SceneManager.LoadScene("LevelOne");
     }
 
+    public void Start(){
+
+		Cursor.visible = true;
+	}
+
     public void OnQuit()
     {
         Application.Quit();
