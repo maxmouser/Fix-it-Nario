@@ -26,6 +26,8 @@ public class MovimientoPlayer1 : MonoBehaviour
     public bool isJumping =false;
     public bool stairsCollision = false;
     public bool collisionEmpujeBack = false;
+    public bool collisionPinches = false;
+    public bool collisionPlataforma = false;
     public bool colisionEmpujeFront = false;
 
     public Animator anim;
@@ -157,9 +159,13 @@ public class MovimientoPlayer1 : MonoBehaviour
         {
             collisionEmpujeBack = true;        
         }
-        if (other.gameObject.layer == 12)//Layer 10 es el empujador de la camara Back
+        if (other.gameObject.layer == 13)//Layer 13 es el layer de los pinches
         {
-            colisionEmpujeFront = true;
+            collisionPinches = true;
+        }
+        if (other.gameObject.layer == 14)//Layer 14 es el layer de las plataformas
+        {
+            collisionPlataforma = true;
         }
     }
 
@@ -172,18 +178,25 @@ public class MovimientoPlayer1 : MonoBehaviour
             anim.SetBool("Escalar", false);
             anim.SetBool("Idle", true);
         }
-        //if (other.gameObject.layer == 10){
-        //    collisionEmpujeBack = false;
-        //}
-        //if (other.gameObject.layer == 12)
+
+        //if (other.gameObject.layer == 10)//Layer 10 es el empujador de la camara Back
         //{
         //    collisionEmpujeBack = false;
         //}
+        if (other.gameObject.layer == 13)//Layer 13 es el layer de los pinches
+        {
+            collisionPinches = false;
+        }
+        if (other.gameObject.layer == 14)//Layer 14 es el layer de las plataformas
+        {
+            collisionPlataforma = false;
+        }
     }
 
     public void chequeoMuerte() //Esta funcion chequea si lo chocan 2 objetos a la vez
     {
-        //if()
+        if ((collisionEmpujeBack && collisionPinches) || (collisionEmpujeBack && collisionPlataforma))
+            muerte();
 
     }
 

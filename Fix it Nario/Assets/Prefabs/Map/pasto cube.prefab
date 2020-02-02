@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7343572305915684601}
   - component: {fileID: 3951087827328686592}
   - component: {fileID: 5221108674771919916}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: pasto cube
   m_TagString: Ground
   m_Icon: {fileID: 0}

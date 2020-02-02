@@ -61,6 +61,5 @@ public class ScriptColliderPies : MonoBehaviour
             player.isGrounded = false;
 
         }
-        
     }
 }
