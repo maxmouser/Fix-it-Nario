@@ -6,6 +6,10 @@ using UnityEngine;
 
 public class UIButtonResource : MonoBehaviour
 {
+    public Text CuantityText;
+    public Image MyRenderer;
+
+
     private Action _onClick;
     private int _cuantity;
     public bool _isHover;
@@ -45,8 +49,10 @@ public class UIButtonResource : MonoBehaviour
     {
         if (sprite != null)
         {
-            
+            MyRenderer.sprite = sprite;
         }
+
+        CuantityText.text = cuantity.ToString();
 
         _onClick = onClick;
     }
@@ -58,9 +64,11 @@ public class UIButtonResource : MonoBehaviour
 
     public void ModifyCuantity(int newCuantity)
     {
-        
+        Debug.Log("ModifyCuantity " + newCuantity);
+        CuantityText.text = newCuantity.ToString();
+
     }
 
-    
+
 
 }

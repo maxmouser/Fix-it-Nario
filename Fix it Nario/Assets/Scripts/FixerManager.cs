@@ -58,14 +58,9 @@ public class FixerManager : MonoBehaviour
         if (resourcesCuantity[id] > 0)
         {
             resourcesCuantity[id]--;
-            Debug.Log("CreateResource Id : " + id + " left: " + resourcesCuantity[id]);
-
+            _uiResources.UpdateCuantity(id, resourcesCuantity[id]);
             activeDragable = Instantiate(resourcesGo[id], GetWorldToMouseScreenPosition(), Quaternion.identity);
 
-        }
-        else
-        {
-            Debug.Log("no item");
         }
     }
 

@@ -31,7 +31,7 @@ public class ScriptColliderPies : MonoBehaviour
   	void OnTriggerStay(Collider other){
         if (other.gameObject.tag == "Ground")
         {
-        	print("tocando el piso");
+        	//print("tocando el piso");
             player.isGrounded = true;
             player.isFalling = false;
             player.isJumping = false;
