@@ -42,7 +42,6 @@ public class MovimientoPlayer1 : MonoBehaviour
     {
         if (!pause)
         {
-            
             fall();
             jump();
             movimientoHorizontal();
@@ -121,7 +120,9 @@ public class MovimientoPlayer1 : MonoBehaviour
         }
     }
 
+
     public AudioClip jumpFX;
+
     public void jump()
     {
         if (isGrounded)
@@ -189,7 +190,10 @@ public class MovimientoPlayer1 : MonoBehaviour
 
     public void chequeoMuerte() //Esta funcion chequea si lo chocan 2 objetos a la vez
     {
-        //if()
+		if (colisionEmpujeFront && collisionEmpujeBack)
+		{
+            muerte();
+		}
 
     }
 
