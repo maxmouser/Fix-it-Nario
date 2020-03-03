@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class ScriptColliderFront : MonoBehaviour
 {
-    public MovimientoPlayer1 player;
+    /*public Player player;
 
     void Start()
     {
-        player = FindObjectOfType<MovimientoPlayer1>();
+        player = FindObjectOfType<Player>();
     }
 
     void OnTriggerStay(Collider other)
@@ -17,7 +17,7 @@ public class ScriptColliderFront : MonoBehaviour
         {
             player.isFalling = true;
             player.colisionEmpujeFront = true;
-            player.isGrounded = false;
+            //player.isGrounded = false;
         }
     }
 
@@ -27,6 +27,6 @@ public class ScriptColliderFront : MonoBehaviour
         {
             player.colisionEmpujeFront = false;
         }
-    }
+    }*/
 
 }

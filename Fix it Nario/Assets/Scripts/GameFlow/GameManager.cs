@@ -8,11 +8,11 @@ public class GameManager : MonoBehaviour
     public Mouse _mouseManager;
     bool isGameInPause = true;
     public FixerManager fixerM;
-    private MovimientoPlayer1 player;
+    private Player player;
 
     private void Awake()
     {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<MovimientoPlayer1>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         fixerM.StartCreateResources();
         Camera.main.GetComponent<MovimientoCamara>().onEndShake = StartToPlay;
     }

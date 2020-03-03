@@ -23,7 +23,7 @@ public class Mouse : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Cursor.visible = false;
+        //Cursor.visible = false;
         mouseLimits = new Rect();
         mouseLimits.xMin = (PercentScreenMove * Screen.width) / 100;
         mouseLimits.xMax = Screen.width;

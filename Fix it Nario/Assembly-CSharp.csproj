@@ -62,55 +62,58 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\EndGame.cs" />
-    <Compile Include="Assets\GameOver.cs" />
-    <Compile Include="Assets\MainMenu.cs" />
-    <Compile Include="Assets\MovimientoCamara.cs" />
-    <Compile Include="Assets\ScriptColliderPies.cs" />
-    <Compile Include="Assets\Scripts\AudioManager.cs" />
-    <Compile Include="Assets\Scripts\Collectables\Collectables.cs" />
+    <Compile Include="Assets\Jump.cs" />
+    <Compile Include="Assets\Scenes\PlayerCharacter.cs" />
+    <Compile Include="Assets\Scripts\Audio\AudioManager.cs" />
     <Compile Include="Assets\Scripts\Constants.cs" />
-    <Compile Include="Assets\Scripts\FixerManager.cs" />
-    <Compile Include="Assets\Scripts\FixerSide\UIButtonResource.cs" />
-    <Compile Include="Assets\Scripts\FixerSide\UIResources.cs" />
-    <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\GameFlow\EndGame.cs" />
+    <Compile Include="Assets\Scripts\GameFlow\GameManager.cs" />
+    <Compile Include="Assets\Scripts\GameFlow\GameOver.cs" />
+    <Compile Include="Assets\Scripts\GameFlow\MainMenu.cs" />
+    <Compile Include="Assets\Scripts\GameFlow\MovimientoCamara.cs" />
+    <Compile Include="Assets\Scripts\GameFlow\ScriptColliderBack.cs" />
+    <Compile Include="Assets\Scripts\GameFlow\ScriptColliderFront.cs" />
+    <Compile Include="Assets\Scripts\GameFlow\ScriptColliderPies.cs" />
+    <Compile Include="Assets\Scripts\GameFlow\Win.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\Collectables\Collectables.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\FixerSide\FixerManager.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\FixerSide\UIButtonResource.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\FixerSide\UIResources.cs" />
     <Compile Include="Assets\Scripts\Mouse\Mouse.cs" />
-    <Compile Include="Assets\Scripts\MovimientoPlayer1.cs" />
-    <Compile Include="Assets\Scripts\Platformer.cs" />
-    <Compile Include="Assets\Win.cs" />
-    <None Include="Assets\SkySerie Freebie\Hdri setup.txt" />
+    <Compile Include="Assets\Scripts\Platformer\Player.cs" />
+    <None Include="Assets\Prefabs\SkySerie Freebie\Hdri setup.txt" />
     <Reference Include="Unity.Timeline.Editor">
-      <HintPath>C:/Nario/Fix-it-Nario/Fix it Nario/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+      <HintPath>C:/Users/Tensai/Downloads/Firefox/Nario EXE/Fix-it-Nario/Fix it Nario/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
-      <HintPath>C:/Nario/Fix-it-Nario/Fix it Nario/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+      <HintPath>C:/Users/Tensai/Downloads/Firefox/Nario EXE/Fix-it-Nario/Fix it Nario/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>C:/Nario/Fix-it-Nario/Fix it Nario/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>C:/Users/Tensai/Downloads/Firefox/Nario EXE/Fix-it-Nario/Fix it Nario/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>C:/Nario/Fix-it-Nario/Fix it Nario/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+      <HintPath>C:/Users/Tensai/Downloads/Firefox/Nario EXE/Fix-it-Nario/Fix it Nario/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
-      <HintPath>C:/Nario/Fix-it-Nario/Fix it Nario/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+      <HintPath>C:/Users/Tensai/Downloads/Firefox/Nario EXE/Fix-it-Nario/Fix it Nario/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>C:/Nario/Fix-it-Nario/Fix it Nario/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>C:/Users/Tensai/Downloads/Firefox/Nario EXE/Fix-it-Nario/Fix it Nario/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
-      <HintPath>C:/Nario/Fix-it-Nario/Fix it Nario/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+      <HintPath>C:/Users/Tensai/Downloads/Firefox/Nario EXE/Fix-it-Nario/Fix it Nario/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Sprite.Editor">
-      <HintPath>C:/Nario/Fix-it-Nario/Fix it Nario/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+      <HintPath>C:/Users/Tensai/Downloads/Firefox/Nario EXE/Fix-it-Nario/Fix it Nario/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Tilemap.Editor">
-      <HintPath>C:/Nario/Fix-it-Nario/Fix it Nario/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
+      <HintPath>C:/Users/Tensai/Downloads/Firefox/Nario EXE/Fix-it-Nario/Fix it Nario/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>C:/Nario/Fix-it-Nario/Fix it Nario/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>C:/Users/Tensai/Downloads/Firefox/Nario EXE/Fix-it-Nario/Fix it Nario/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-      <HintPath>C:/Nario/Fix-it-Nario/Fix it Nario/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+      <HintPath>C:/Users/Tensai/Downloads/Firefox/Nario EXE/Fix-it-Nario/Fix it Nario/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.0f6/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>

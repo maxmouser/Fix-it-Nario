@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class ScriptColliderBack : MonoBehaviour
 {
-    public MovimientoPlayer1 player;
+    /*public Player player;
 
     void Start()
     {
-        player = FindObjectOfType<MovimientoPlayer1>();
+        player = FindObjectOfType<Player>();
     }
 
     void OnTriggerEnter(Collider other)
@@ -26,6 +26,6 @@ public class ScriptColliderBack : MonoBehaviour
         {
             player.collisionEmpujeBack = false;
         }
-    }
+    }*/
 
 }
